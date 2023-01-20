@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const displayCountry = createSlice({
   name: 'isLoading',
   initialState: {
-    value: false,
+    value: false
   },
   reducers: {
     setLoadingTrue: (state) => {

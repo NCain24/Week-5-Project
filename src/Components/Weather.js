@@ -1,29 +1,22 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-<<<<<<< HEAD
 import { useSelector, useDispatch } from 'react-redux';
 import { selectDisplay } from '../redux/slices/displayCountrySlice';
-import { toggleLoading, setLoadingFalse, setLoadingTrue } from '../redux/slices/loadingSlice';
+import {
+  toggleLoading,
+  setLoadingFalse,
+  setLoadingTrue,
+} from '../redux/slices/loadingSlice';
 import { selectLoading } from '../redux/slices/loadingSlice';
-import LoadingIcon from './LoadingModal'
-
-const Weather = () => {
-  const [weather, setWeather] = useState();
-  let display = useSelector( selectDisplay );
-  let loading = useSelector( selectLoading );
-  let latitude = display.capitalInfo.latlng[0];
-  let longitude = display.capitalInfo.latlng[ 1 ];
-  let dispatch = useDispatch()
-=======
-import { useSelector } from 'react-redux';
-import { selectDisplay } from '../redux/slices/displayCountrySlice';
+import LoadingModal from './LoadingModal';
 
 const Weather = () => {
   const [weather, setWeather] = useState();
   let display = useSelector(selectDisplay);
+  let loading = useSelector(selectLoading);
   let latitude = display.capitalInfo.latlng[0];
   let longitude = display.capitalInfo.latlng[1];
->>>>>>> 906b4647d58bd850eadb5cc9b69f1b37079cc487
+  let dispatch = useDispatch();
 
   useEffect(() => {
     const axios = require('axios');
@@ -42,12 +35,8 @@ const Weather = () => {
       .request(options)
       .then(function (response) {
         console.log(response.data);
-<<<<<<< HEAD
-        setWeather( response.data );
-        dispatch(setLoadingFalse())
-=======
         setWeather(response.data);
->>>>>>> 906b4647d58bd850eadb5cc9b69f1b37079cc487
+        dispatch(setLoadingFalse());
       })
       .catch(function (error) {
         console.error(error);
@@ -56,48 +45,41 @@ const Weather = () => {
 
   return (
     <div>
-<<<<<<< HEAD
-      { loading ? (
-        <LoadingIcon/>
-      ) : (<table className="overview-table">
-=======
-      <table className="overview-table">
->>>>>>> 906b4647d58bd850eadb5cc9b69f1b37079cc487
-        <tbody>
-          <tr>
-            <td>Capital: </td>
-            <td>{display.capital}</td>
-          </tr>
+      {loading ? (
+        <LoadingModal />
+      ) : (
+        <table className="overview-table">
+          <tbody>
+            <tr>
+              <td>Capital: </td>
+              <td>{display.capital}</td>
+            </tr>
 
-          <tr>
-            <td>Conditions: </td>
-            <td>{weather?.current?.condition?.text}</td>
-          </tr>
-          <tr>
-            <td>Temperature: </td>
-            <td>{weather?.current?.temp_f} F*</td>
-          </tr>
-          <tr>
-            <td>Feels Like: </td>
-            <td>{weather?.current?.feelslike_f} F*</td>
-          </tr>
-          <tr>
-            <td>Humidity: </td>
-            <td>{weather?.current?.humidity}%</td>
-          </tr>
-          <tr>
-            <td>Wind Speed: </td>
-            <td>
-              {weather?.current?.wind_mph} mph {weather?.current?.wind_dir}
-            </td>
-          </tr>
-        </tbody>
-<<<<<<< HEAD
-      </table>)}
-      
-=======
-      </table>
->>>>>>> 906b4647d58bd850eadb5cc9b69f1b37079cc487
+            <tr>
+              <td>Conditions: </td>
+              <td>{weather?.current?.condition?.text}</td>
+            </tr>
+            <tr>
+              <td>Temperature: </td>
+              <td>{weather?.current?.temp_f} F*</td>
+            </tr>
+            <tr>
+              <td>Feels Like: </td>
+              <td>{weather?.current?.feelslike_f} F*</td>
+            </tr>
+            <tr>
+              <td>Humidity: </td>
+              <td>{weather?.current?.humidity}%</td>
+            </tr>
+            <tr>
+              <td>Wind Speed: </td>
+              <td>
+                {weather?.current?.wind_mph} mph {weather?.current?.wind_dir}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      )}
     </div>
   );
 };

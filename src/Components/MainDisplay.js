@@ -10,7 +10,7 @@ const MainDisplay = () => {
       <div className="tab-select">
         <button onClick={() => setView('Overview')}>Overview</button>
         <button onClick={() => setView('Weather')}>
-          Current Weather at Capital
+          Capital Weather
         </button>
         <button onClick={() => setView('Symbols')}>Symbols</button>
         {view === 'Overview' && <Overview />}
