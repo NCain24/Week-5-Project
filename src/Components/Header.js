@@ -3,7 +3,10 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deletePotentialCountries, setPotentialCountries } from "../redux/slices/potentialCountriesSlice";
 import { selectDisplay, deleteDisplayCountry } from "../redux/slices/displayCountrySlice";
+<<<<<<< HEAD
 import { toggleLoading, setLoadingTrue } from "../redux/slices/loadingSlice";
+=======
+>>>>>>> 906b4647d58bd850eadb5cc9b69f1b37079cc487
 
 import { BsFillFlagFill } from "react-icons/bs";
 
@@ -36,7 +39,10 @@ const Header = () => {
                                 dispatch(deleteDisplayCountry())
                                 dispatch( deletePotentialCountries())
                                 dispatch( setPotentialCountries( res.data ) )
+<<<<<<< HEAD
                                 dispatch(setLoadingTrue)
+=======
+>>>>>>> 906b4647d58bd850eadb5cc9b69f1b37079cc487
                                 console.log(res.data);
                             })
                             .catch((err) => {

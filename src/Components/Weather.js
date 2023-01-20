@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+<<<<<<< HEAD
 import { useSelector, useDispatch } from 'react-redux';
 import { selectDisplay } from '../redux/slices/displayCountrySlice';
 import { toggleLoading, setLoadingFalse, setLoadingTrue } from '../redux/slices/loadingSlice';
@@ -13,6 +14,16 @@ const Weather = () => {
   let latitude = display.capitalInfo.latlng[0];
   let longitude = display.capitalInfo.latlng[ 1 ];
   let dispatch = useDispatch()
+=======
+import { useSelector } from 'react-redux';
+import { selectDisplay } from '../redux/slices/displayCountrySlice';
+
+const Weather = () => {
+  const [weather, setWeather] = useState();
+  let display = useSelector(selectDisplay);
+  let latitude = display.capitalInfo.latlng[0];
+  let longitude = display.capitalInfo.latlng[1];
+>>>>>>> 906b4647d58bd850eadb5cc9b69f1b37079cc487
 
   useEffect(() => {
     const axios = require('axios');
@@ -31,8 +42,12 @@ const Weather = () => {
       .request(options)
       .then(function (response) {
         console.log(response.data);
+<<<<<<< HEAD
         setWeather( response.data );
         dispatch(setLoadingFalse())
+=======
+        setWeather(response.data);
+>>>>>>> 906b4647d58bd850eadb5cc9b69f1b37079cc487
       })
       .catch(function (error) {
         console.error(error);
@@ -41,9 +56,13 @@ const Weather = () => {
 
   return (
     <div>
+<<<<<<< HEAD
       { loading ? (
         <LoadingIcon/>
       ) : (<table className="overview-table">
+=======
+      <table className="overview-table">
+>>>>>>> 906b4647d58bd850eadb5cc9b69f1b37079cc487
         <tbody>
           <tr>
             <td>Capital: </td>
@@ -73,8 +92,12 @@ const Weather = () => {
             </td>
           </tr>
         </tbody>
+<<<<<<< HEAD
       </table>)}
       
+=======
+      </table>
+>>>>>>> 906b4647d58bd850eadb5cc9b69f1b37079cc487
     </div>
   );
 };

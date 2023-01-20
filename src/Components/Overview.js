@@ -1,7 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectDisplay } from '../redux/slices/displayCountrySlice';
+<<<<<<< HEAD
 import LoadingModal from './LoadingModal';
+=======
+>>>>>>> 906b4647d58bd850eadb5cc9b69f1b37079cc487
 import '../App.css';
 
 const Overview = () => {
